@@ -90,33 +90,33 @@ export default function ChordNamerPage() {
 
   const handleFretToggle = (string: number, fret: number) => {
     setSelectedNotes((prev) => {
-      const existingNote = prev.find(
-        (n) => n.source.type === "guitar" && n.source.string === string,
-      );
-      if (existingNote) {
-        // If clicking the same fret, remove it
-        if (existingNote.source.fret === fret) {
-          return prev.filter(
-            (n) => !(n.source.type === "guitar" && n.source.string === string),
-          );
-        }
-        // If clicking a different fret on the same string, replace it
-        const otherNotes = prev.filter(
-          (n) => !(n.source.type === "guitar" && n.source.string === string),
-        );
-        return [
-          ...otherNotes,
-          {
-            id: `g-${string}-${fret}`,
-            source: { type: "guitar", string, fret },
-          },
-        ];
+      const existingNoteIndex = prev.findIndex(n => n.source.type === 'guitar' && n.source.string === string && n.source.fret === fret);
+      
+      if (existingNoteIndex > -1) {
+        return prev.filter((_, index) => index !== existingNoteIndex);
+      } else {
+        const filteredNotes = prev.filter(n => !(n.source.type === 'guitar' && n.source.string === string));
+        return [...filteredNotes, { id: `g-${string}-${fret}`, source: { type: 'guitar', string, fret } }];
       }
-      // Add new note
-      return [
-        ...prev,
-        { id: `g-${string}-${fret}`, source: { type: "guitar", string, fret } },
-      ];
+    });
+  };
+
+  const handleFretBarre = (fret: number) => {
+    if (fret === 0) return;
+    setSelectedNotes((prev) => {
+      const guitarNotes = prev.filter(n => n.source.type === 'guitar');
+      const isBarred = guitarNotes.filter(n => n.source.type === 'guitar' && n.source.fret === fret).length === 6;
+
+      if (isBarred) {
+        return prev.filter(n => !(n.source.type === 'guitar' && n.source.fret === fret));
+      } else {
+        const otherNotes = prev.filter(n => !(n.source.type === 'guitar'));
+        const newBarre: SelectedNote[] = [];
+        for (let i = 0; i < 6; i++) {
+          newBarre.push({ id: `g-${i}-${fret}`, source: { type: 'guitar', string: i, fret } });
+        }
+        return [...otherNotes, ...newBarre];
+      }
     });
   };
 
@@ -203,6 +203,7 @@ export default function ChordNamerPage() {
             <Fretboard
               selectedNotes={guitarNotes}
               onFretToggle={handleFretToggle}
+              onFretBarre={handleFretBarre}
               rootNote={chordData?.root}
             />
           </TabsContent>

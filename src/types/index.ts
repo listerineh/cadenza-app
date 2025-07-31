@@ -19,7 +19,7 @@ export interface SelectedNote {
 export interface SavedChord {
   name: string;
   fingering: SelectedNote[];
-  date: string; // ISO string used as a unique ID
+  date: string;
   instrument: string;
 }
 

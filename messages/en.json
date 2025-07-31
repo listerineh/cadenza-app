@@ -19,7 +19,7 @@
   },
   "ChordNamerPage": {
     "title": "Chord Namer",
-    "subtitle": "Select an instrument and click the notes to identify a chord.",
+    "subtitle": "Click a fret to select a note, or a fret number to create a barre. Only one note can be selected per string.",
     "reset": "Reset",
     "guitar": "Guitar",
     "piano": "Piano",

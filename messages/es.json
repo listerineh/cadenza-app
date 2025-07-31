@@ -19,7 +19,7 @@
   },
   "ChordNamerPage": {
     "title": "Nombrador de Acordes",
-    "subtitle": "Selecciona un instrumento y haz clic en las notas para identificar un acorde.",
+    "subtitle": "Haz clic en un traste para seleccionar una nota, o en un número de traste para crear una cejilla. Solo se puede seleccionar una nota por cuerda.",
     "reset": "Reiniciar",
     "guitar": "Guitarra",
     "piano": "Piano",
