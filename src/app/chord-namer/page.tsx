@@ -90,13 +90,26 @@ export default function ChordNamerPage() {
 
   const handleFretToggle = (string: number, fret: number) => {
     setSelectedNotes((prev) => {
-      const existingNoteIndex = prev.findIndex(n => n.source.type === 'guitar' && n.source.string === string && n.source.fret === fret);
-      
+      const existingNoteIndex = prev.findIndex(
+        (n) =>
+          n.source.type === "guitar" &&
+          n.source.string === string &&
+          n.source.fret === fret,
+      );
+
       if (existingNoteIndex > -1) {
         return prev.filter((_, index) => index !== existingNoteIndex);
       } else {
-        const filteredNotes = prev.filter(n => !(n.source.type === 'guitar' && n.source.string === string));
-        return [...filteredNotes, { id: `g-${string}-${fret}`, source: { type: 'guitar', string, fret } }];
+        const filteredNotes = prev.filter(
+          (n) => !(n.source.type === "guitar" && n.source.string === string),
+        );
+        return [
+          ...filteredNotes,
+          {
+            id: `g-${string}-${fret}`,
+            source: { type: "guitar", string, fret },
+          },
+        ];
       }
     });
   };
@@ -104,16 +117,24 @@ export default function ChordNamerPage() {
   const handleFretBarre = (fret: number) => {
     if (fret === 0) return;
     setSelectedNotes((prev) => {
-      const guitarNotes = prev.filter(n => n.source.type === 'guitar');
-      const isBarred = guitarNotes.filter(n => n.source.type === 'guitar' && n.source.fret === fret).length === 6;
+      const guitarNotes = prev.filter((n) => n.source.type === "guitar");
+      const isBarred =
+        guitarNotes.filter(
+          (n) => n.source.type === "guitar" && n.source.fret === fret,
+        ).length === 6;
 
       if (isBarred) {
-        return prev.filter(n => !(n.source.type === 'guitar' && n.source.fret === fret));
+        return prev.filter(
+          (n) => !(n.source.type === "guitar" && n.source.fret === fret),
+        );
       } else {
-        const otherNotes = prev.filter(n => !(n.source.type === 'guitar'));
+        const otherNotes = prev.filter((n) => !(n.source.type === "guitar"));
         const newBarre: SelectedNote[] = [];
         for (let i = 0; i < 6; i++) {
-          newBarre.push({ id: `g-${i}-${fret}`, source: { type: 'guitar', string: i, fret } });
+          newBarre.push({
+            id: `g-${i}-${fret}`,
+            source: { type: "guitar", string: i, fret },
+          });
         }
         return [...otherNotes, ...newBarre];
       }

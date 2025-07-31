@@ -7,50 +7,61 @@ import AppHeader from "@/components/cadenza/AppHeader";
 import AppFooter from "@/components/cadenza/AppFooter";
 
 export const metadata: Metadata = {
-  title: 'Cadenza',
+  title: "Cadenza",
   description:
-    'A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.',
-  keywords: ["music theory", "chords", "scales", "circle of fifths", "guitar", "piano", "musician", "harmony", "music education", "interactive tools"],
-  generator: 'Next.js',
-  referrer: 'origin',
-  manifest: '/manifest.json',
-  publisher: 'Vercel',
+    "A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.",
+  keywords: [
+    "music theory",
+    "chords",
+    "scales",
+    "circle of fifths",
+    "guitar",
+    "piano",
+    "musician",
+    "harmony",
+    "music education",
+    "interactive tools",
+  ],
+  generator: "Next.js",
+  referrer: "origin",
+  manifest: "/manifest.json",
+  publisher: "Vercel",
   authors: [
     {
-      name: 'Listerineh',
-      url: 'https://listerineh.dev',
+      name: "Listerineh",
+      url: "https://listerineh.dev",
     },
   ],
   openGraph: {
-    title: 'Cadenza',
+    title: "Cadenza",
     description:
-      'A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.',
-    url: 'https://cadenza-app.vercel.app',
-    siteName: 'Cadenza',
+      "A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.",
+    url: "https://cadenza-app.vercel.app",
+    siteName: "Cadenza",
     images: [
       {
-        url: '/images/website_screenshot.webp',
+        url: "/images/website_screenshot.webp",
         width: 1200,
         height: 630,
-        alt: 'Cadenza Preview',
+        alt: "Cadenza Preview",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    title: 'Cadenza',
+    title: "Cadenza",
     description:
-      'A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.',
+      "A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.",
     images: [
       {
-        url: '/images/website_screenshot.webp',
+        url: "/images/website_screenshot.webp",
         width: 1200,
         height: 630,
-        alt: 'Cadenza Preview',
+        alt: "Cadenza Preview",
       },
     ],
-    card: 'summary_large_image',
+    card: "summary_large_image",
   },
 };
 
@@ -88,7 +99,7 @@ export default function RootLayout({
         <LanguageProvider>
           <AppLayout>{children}</AppLayout>
         </LanguageProvider>
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
   );

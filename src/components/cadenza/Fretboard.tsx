@@ -185,21 +185,23 @@ export default function Fretboard({
 
           {/* Fret Numbers */}
           <div className="flex pl-12 mt-1">
-            {fretNumbers.slice(1).map(fret => {
-              const isBarred = isInteractive && selectedNotes.filter(n => n.fret === fret).length === 6;
+            {fretNumbers.slice(1).map((fret) => {
+              const isBarred =
+                isInteractive &&
+                selectedNotes.filter((n) => n.fret === fret).length === 6;
               return (
-                <button 
-                  key={fret} 
+                <button
+                  key={fret}
                   onClick={() => isInteractive && onFretBarre(fret)}
                   className={cn(
                     "flex-1 text-center text-xs text-muted-foreground rounded-md py-1 transition-colors",
                     isInteractive && "hover:bg-accent",
-                    isBarred && "bg-primary text-primary-foreground font-bold"
+                    isBarred && "bg-primary text-primary-foreground font-bold",
                   )}
                 >
                   {fret}
                 </button>
-              )
+              );
             })}
           </div>
         </div>

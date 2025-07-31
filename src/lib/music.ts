@@ -6,7 +6,7 @@ import {
   NOTE_MAP,
   INTERVAL_NAMES,
   SCALES,
-  CHORD_LOOKUP,
+  CHORD_INTERVALS,
 } from "./constants";
 
 const getNoteIndex = (note: string) => {
@@ -108,26 +108,40 @@ export const recognizeChord = (notes: string[]): RecognizedChord | null => {
   for (const rootNote of uniqueNotes) {
     const rootIndex = getNoteIndex(rootNote);
     if (rootIndex === -1) continue;
+
     const intervals = uniqueNotes
       .map((note) => (getNoteIndex(note) - rootIndex + 12) % 12)
       .sort((a, b) => a - b);
 
-    const intervalKey = intervals.join(",");
-
-    const quality = CHORD_LOOKUP.get(intervalKey);
-    if (quality) {
-      const tones = uniqueNotes
-        .map((note) => {
-          const intervalValue = (getNoteIndex(note) - rootIndex + 12) % 12;
-          return { note, interval: INTERVAL_NAMES[intervalValue] || "Unknown" };
-        })
-        .sort(
-          (a, b) =>
-            ((getNoteIndex(a.note) - rootIndex + 12) % 12) -
-            ((getNoteIndex(b.note) - rootIndex + 12) % 12),
+    for (const [quality, requiredIntervalSets] of CHORD_INTERVALS) {
+      for (const requiredIntervals of requiredIntervalSets) {
+        const isMatch = requiredIntervals.every((reqInterval) =>
+          intervals.includes(reqInterval),
         );
 
-      return { name: `${rootNote} ${quality}`, root: rootNote, quality, tones };
+        if (isMatch) {
+          const tones = uniqueNotes
+            .map((note) => {
+              const intervalValue = (getNoteIndex(note) - rootIndex + 12) % 12;
+              return {
+                note,
+                interval: INTERVAL_NAMES[intervalValue] || "Unknown",
+              };
+            })
+            .sort(
+              (a, b) =>
+                ((getNoteIndex(a.note) - rootIndex + 12) % 12) -
+                ((getNoteIndex(b.note) - rootIndex + 12) % 12),
+            );
+
+          return {
+            name: `${rootNote} ${quality}`,
+            root: rootNote,
+            quality,
+            tones,
+          };
+        }
+      }
     }
   }
 

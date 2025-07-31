@@ -132,57 +132,71 @@ export const SCALES: Record<string, number[]> = {
   locrian: [0, 1, 3, 5, 6, 8, 10],
 };
 
-export const CHORD_INTERVALS: Record<string, number[][]> = {
-  Major: [[0, 4, 7]],
-  Minor: [[0, 3, 7]],
-  Diminished: [[0, 3, 6]],
-  Augmented: [[0, 4, 8]],
-  Sus2: [[0, 2, 7]],
-  Sus4: [[0, 5, 7]],
-  "Major 6th": [[0, 4, 7, 9]],
-  "Minor 6th": [[0, 3, 7, 9]],
-  "Dominant 7th": [[0, 4, 7, 10]],
-  "Major 7th": [[0, 4, 7, 11]],
-  "Minor 7th": [[0, 3, 7, 10]],
-  "Minor Major 7th": [[0, 3, 7, 11]],
-  "Diminished 7th": [[0, 3, 6, 9]],
-  "Half-Diminished 7th": [[0, 3, 6, 10]],
-  "Augmented 7th": [[0, 4, 8, 10]],
-  "Augmented Major 7th": [[0, 4, 8, 11]],
-  "Dominant 9th": [
-    [0, 4, 7, 10, 2],
-    [0, 4, 10, 2],
+export const CHORD_INTERVALS: [string, number[][]][] = [
+  [
+    "6/9",
+    [
+      [0, 4, 7, 9, 2],
+      [0, 4, 9, 2],
+    ],
   ],
-  "Major 9th": [
-    [0, 4, 7, 11, 2],
-    [0, 4, 11, 2],
+  ["Dominant 7th (b9)", [[0, 4, 7, 10, 1]]],
+  ["Dominant 7th (#9)", [[0, 4, 7, 10, 3]]],
+  [
+    "Minor Major 9th",
+    [
+      [0, 3, 7, 11, 2],
+      [0, 3, 11, 2],
+    ],
   ],
-  "Minor 9th": [
-    [0, 3, 7, 10, 2],
-    [0, 3, 10, 2],
+  [
+    "Minor 9th",
+    [
+      [0, 3, 7, 10, 2],
+      [0, 3, 10, 2],
+    ],
   ],
-  "Minor Major 9th": [
-    [0, 3, 7, 11, 2],
-    [0, 3, 11, 2],
+  [
+    "Major 9th",
+    [
+      [0, 4, 7, 11, 2],
+      [0, 4, 11, 2],
+    ],
   ],
-  Add9: [[0, 4, 7, 2]],
-  "Minor Add9": [[0, 3, 7, 2]],
-  "6/9": [
-    [0, 4, 7, 9, 2],
-    [0, 4, 9, 2],
+  [
+    "Dominant 9th",
+    [
+      [0, 4, 7, 10, 2],
+      [0, 4, 10, 2],
+    ],
   ],
-  "Major 7th (b5)": [[0, 4, 6, 11]],
-  "Minor 7th (b5)": [[0, 3, 6, 10]],
-  "Major 7th (#5)": [[0, 4, 8, 11]],
-  "Dominant 7th (b5)": [[0, 4, 6, 10]],
-  "Dominant 7th (#5)": [[0, 4, 8, 10]],
-  "Dominant 7th (b9)": [[0, 4, 7, 10, 1]],
-  "Dominant 7th (#9)": [[0, 4, 7, 10, 3]],
-};
+  ["Augmented Major 7th", [[0, 4, 8, 11]]],
+  ["Augmented 7th", [[0, 4, 8, 10]]],
+  ["Half-Diminished 7th", [[0, 3, 6, 10]]],
+  ["Diminished 7th", [[0, 3, 6, 9]]],
+  ["Minor Major 7th", [[0, 3, 7, 11]]],
+  ["Minor 7th", [[0, 3, 7, 10]]],
+  ["Major 7th", [[0, 4, 7, 11]]],
+  ["Dominant 7th", [[0, 4, 7, 10]]],
+  ["Minor 6th", [[0, 3, 7, 9]]],
+  ["Major 6th", [[0, 4, 7, 9]]],
+  ["Minor 7th (b5)", [[0, 3, 6, 10]]],
+  ["Major 7th (#5)", [[0, 4, 8, 11]]],
+  ["Dominant 7th (#5)", [[0, 4, 8, 10]]],
+  ["Major 7th (b5)", [[0, 4, 6, 11]]],
+  ["Dominant 7th (b5)", [[0, 4, 6, 10]]],
+  ["Minor Add9", [[0, 3, 7, 2]]],
+  ["Add9", [[0, 4, 7, 2]]],
+  ["Sus4", [[0, 5, 7]]],
+  ["Sus2", [[0, 2, 7]]],
+  ["Augmented", [[0, 4, 8]]],
+  ["Diminished", [[0, 3, 6]]],
+  ["Minor", [[0, 3, 7]]],
+  ["Major", [[0, 4, 7]]],
+];
 
 export const CHORD_LOOKUP: Map<string, string> = new Map();
-for (const chordName in CHORD_INTERVALS) {
-  const allIntervalSets = CHORD_INTERVALS[chordName];
+for (const [chordName, allIntervalSets] of CHORD_INTERVALS) {
   for (const intervalSet of allIntervalSets) {
     const key = [...intervalSet].sort((a, b) => a - b).join(",");
     if (!CHORD_LOOKUP.has(key)) {
