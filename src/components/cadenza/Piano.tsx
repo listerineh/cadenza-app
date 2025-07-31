@@ -21,8 +21,8 @@ export default function Piano({
   highlightedMidiNotes = [],
   rootNote,
   onKeyToggle = () => {},
-  startOctave = 3,
-  octaveCount = 3,
+  startOctave = 2,
+  octaveCount = 6,
   isInteractive = true,
 }: PianoProps) {
   const renderOctave = (octave: number) => {
