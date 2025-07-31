@@ -6,6 +6,7 @@ import { LanguageProvider } from "@/components/cadenza/LanguageProvider";
 import { ReactNode } from "react";
 import AppHeader from "@/components/cadenza/AppHeader";
 import AppFooter from "@/components/cadenza/AppFooter";
+import { Analytics } from "@vercel/analytics/next"
 
 function AppLayout({ children }: { children: ReactNode }) {
   return (
@@ -43,6 +44,7 @@ export default function RootLayout({
         <LanguageProvider>
           <AppLayout>{children}</AppLayout>
         </LanguageProvider>
+        <Analytics/>
       </body>
     </html>
   );
