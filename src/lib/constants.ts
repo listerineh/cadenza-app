@@ -1,8 +1,8 @@
 export const NAV_LINKS = [
-    { href: "/chord-namer", label: "Chord Namer", i18nKey: "chordNamer", badge: 'new' as const },
-    { href: "/scale-finder", label: "Scale Finder", i18nKey: "scaleFinder", badge: 'experimental' as const },
-    { href: "/scale-explorer", label: "Scale Explorer", i18nKey: "scaleExplorer" },
-    { href: "/circle-of-fifths", label: "Circle of Fifths", i18nKey: "circleOfFifths" },
+  { href: '/chord-namer', label: 'Chord Namer', i18nKey: 'chordNamer', badge: 'new' as const },
+  { href: '/scale-finder', label: 'Scale Finder', i18nKey: 'scaleFinder', badge: 'experimental' as const },
+  { href: '/scale-explorer', label: 'Scale Explorer', i18nKey: 'scaleExplorer' },
+  { href: '/circle-of-fifths', label: 'Circle of Fifths', i18nKey: 'circleOfFifths' },
 ];
 
 export const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];

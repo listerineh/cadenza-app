@@ -56,6 +56,7 @@ Cadenza is packed with interactive tools to deepen your understanding of music t
 | Feature                  | Description                                                                   | Status |
 | ------------------------ | ----------------------------------------------------------------------------- | :----: |
 | **Chord Namer**          | Identify chords on guitar and piano with interactive virtual instruments.     |   ✅   |
+| **Scale Finder**         | Find compatible scales for a given chord progression.                         |   ✅   |
 | **Scale Explorer**       | Visualize scales on a fretboard or keyboard to master your instrument.        |   ✅   |
 | **Circle of Fifths**     | Explore key signatures and harmonic relationships with an interactive circle. |   ✅   |
 | **Internationalization** | Full support for English and Spanish.                                         |   ✅   |
