@@ -53,12 +53,12 @@
 
 Cadenza is packed with interactive tools to deepen your understanding of music theory.
 
-| Feature             | Description                                                                  | Status |
-| ------------------- | ---------------------------------------------------------------------------- | :----: |
-| **Chord Namer**     | Identify chords on guitar and piano with interactive virtual instruments.    |   ✅   |
-| **Scale Explorer**  | Visualize scales on a fretboard or keyboard to master your instrument.       |   ✅   |
-| **Circle of Fifths**| Explore key signatures and harmonic relationships with an interactive circle.|   ✅   |
-| **Internationalization**    | Full support for English and Spanish.                                        |   ✅   |
+| Feature                  | Description                                                                   | Status |
+| ------------------------ | ----------------------------------------------------------------------------- | :----: |
+| **Chord Namer**          | Identify chords on guitar and piano with interactive virtual instruments.     |   ✅   |
+| **Scale Explorer**       | Visualize scales on a fretboard or keyboard to master your instrument.        |   ✅   |
+| **Circle of Fifths**     | Explore key signatures and harmonic relationships with an interactive circle. |   ✅   |
+| **Internationalization** | Full support for English and Spanish.                                         |   ✅   |
 
 ---
 
@@ -90,12 +90,14 @@ To get a local copy up and running, follow these simple steps.
 ### Installation
 
 1.  **Clone the repository**
+
     ```bash
     git clone https://github.com/listerineh/cadenza-app.git
     cd cadenza
     ```
 
 2.  **Install dependencies**
+
     ```bash
     npm install
     ```

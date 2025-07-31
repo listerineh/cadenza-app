@@ -1,4 +1,3 @@
-
 {
   "HomePage": {
     "title": "Tu Kit de Herramientas de Teoría Musical Moderna",
@@ -73,10 +72,7 @@
     "circleOfFifths": "Círculo de Quintas"
   },
   "Footer": {
-    "builtBy": [
-      "Hecho por",
-      "con amor."
-    ],
+    "builtBy": ["Hecho por", "con amor."],
     "githubPrompt": "Dame una estrella o contribuye en GitHub",
     "cadenzaTools": "Herramientas de Cadenza"
   },

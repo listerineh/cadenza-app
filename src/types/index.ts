@@ -1,11 +1,11 @@
 export type GuitarFingering = {
-  type: 'guitar';
+  type: "guitar";
   string: number; // 0 for high E, 5 for low E
-  fret: number;   // 0 for open string
+  fret: number; // 0 for open string
 };
 
 export type PianoFingering = {
-  type: 'piano';
+  type: "piano";
   midi: number;
 };
 

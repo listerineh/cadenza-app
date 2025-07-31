@@ -1,4 +1,3 @@
-
 {
   "HomePage": {
     "title": "Your Modern Music Theory Toolkit",
@@ -73,10 +72,7 @@
     "circleOfFifths": "Circle of Fifths"
   },
   "Footer": {
-    "builtBy": [
-      "Built by",
-      "with love."
-    ],
+    "builtBy": ["Built by", "with love."],
     "githubPrompt": "Give me a star or contribute on GitHub",
     "cadenzaTools": "Cadenza Tools"
   },
