@@ -1,0 +1,17 @@
+{
+  "name": "Cadenza",
+  "short_name": "Cadenza",
+  "description": "Your Modern Music Theory Toolkit",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#8B0000",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
