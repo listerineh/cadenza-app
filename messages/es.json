@@ -1,0 +1,102 @@
+
+{
+  "HomePage": {
+    "title": "Tu Kit de Herramientas de Teoría Musical Moderna",
+    "subtitle": "Descubre los secretos de la armonía con Cadenza. Una suite de herramientas interactivas de uso gratuito diseñadas por músicos para músicos para explorar, identificar y crear música.",
+    "launchTool": "Abrir Herramienta",
+    "moreToolsComingSoon": "¡Más herramientas próximamente!"
+  },
+  "ChordNamer": {
+    "title": "Nombrador de Acordes",
+    "description": "Identifica acordes en guitarra y piano con instrumentos interactivos."
+  },
+  "ScaleExplorer": {
+    "title": "Explorador de Escalas",
+    "description": "Visualiza escalas en guitarra y piano para dominar tu diapasón y teclado."
+  },
+  "CircleOfFifths": {
+    "title": "Círculo de Quintas",
+    "description": "Explora armaduras y relaciones armónicas con un círculo interactivo."
+  },
+  "ChordNamerPage": {
+    "title": "Nombrador de Acordes",
+    "subtitle": "Selecciona un instrumento y haz clic en las notas para identificar un acorde.",
+    "reset": "Reiniciar",
+    "guitar": "Guitarra",
+    "piano": "Piano",
+    "pianoComingSoon": "¡La interfaz de piano llegará pronto!"
+  },
+  "ScaleExplorerPage": {
+    "title": "Explorador de Escalas",
+    "subtitle": "Selecciona una tónica y una escala para verla en el instrumento.",
+    "rootNote": "Tónica",
+    "scale": "Escala",
+    "selectRoot": "Selecciona una tónica",
+    "selectScale": "Selecciona una escala"
+  },
+  "CircleOfFifthsPage": {
+    "title": "Círculo de Quintas",
+    "subtitle": "Explora armaduras y relaciones armónicas."
+  },
+  "KeyInfo": {
+    "title": "Información de la Tonalidad",
+    "keyOf": "Tonalidad de",
+    "relativeKey": "Relativo",
+    "keySignature": "Armadura",
+    "sharps": "Sostenidos",
+    "flats": "Bemoles",
+    "none": "Ninguna",
+    "primaryChords": "Acordes Primarios",
+    "major": "Mayor",
+    "minor": "Menor",
+    "diminished": "Disminuido"
+  },
+  "ChordInspector": {
+    "title": "Inspector de Acordes",
+    "description": "El acorde identificado y su estructura.",
+    "placeholder": "Haz clic en el diapasón para seleccionar notas.",
+    "chordTones": "Notas del Acorde",
+    "tonesPlaceholder": "Selecciona notas para ver sus intervalos.",
+    "saveChord": "Guardar Acorde"
+  },
+  "SavedChords": {
+    "title": "Acordes Guardados",
+    "description": "Tu colección de acordes descubiertos.",
+    "placeholder": "Aún no has guardado acordes.",
+    "placeholderDescription": "Usa el botón \"Guardar Acorde\" para añadir a tu colección.",
+    "loadChord": "Cargar acorde",
+    "deleteChord": "Eliminar acorde"
+  },
+  "Navigation": {
+    "chordNamer": "Nombrador de Acordes",
+    "scaleExplorer": "Explorador de Escalas",
+    "circleOfFifths": "Círculo de Quintas"
+  },
+  "Footer": {
+    "builtBy": [
+      "Hecho por",
+      "con amor."
+    ],
+    "githubPrompt": "Dame una estrella o contribuye en GitHub",
+    "cadenzaTools": "Herramientas de Cadenza"
+  },
+  "Common": {
+    "unison": "Unísono",
+    "powerChord": "Power Chord",
+    "unknownChord": "Acorde Desconocido"
+  },
+  "Scales": {
+    "major": "Mayor",
+    "minor": "Menor Natural",
+    "harmonicMinor": "Menor Armónica",
+    "melodicMinor": "Menor Melódica",
+    "majorPentatonic": "Pentatónica Mayor",
+    "minorPentatonic": "Pentatónica Menor",
+    "blues": "Blues",
+    "dorian": "Dórico",
+    "phrygian": "Frigio",
+    "lydian": "Lidio",
+    "mixolydian": "Mixolidio",
+    "locrian": "Locrio"
+  }
+}

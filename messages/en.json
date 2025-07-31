@@ -1,0 +1,102 @@
+
+{
+  "HomePage": {
+    "title": "Your Modern Music Theory Toolkit",
+    "subtitle": "Unlock the secrets of harmony with Cadenza. A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.",
+    "launchTool": "Launch Tool",
+    "moreToolsComingSoon": "More tools coming soon!"
+  },
+  "ChordNamer": {
+    "title": "Chord Namer",
+    "description": "Identify chords on guitar and piano with interactive instruments."
+  },
+  "ScaleExplorer": {
+    "title": "Scale Explorer",
+    "description": "Visualize scales on guitar and piano to master your fretboard and keyboard."
+  },
+  "CircleOfFifths": {
+    "title": "Circle of Fifths",
+    "description": "Explore key signatures and harmonic relationships with an interactive circle."
+  },
+  "ChordNamerPage": {
+    "title": "Chord Namer",
+    "subtitle": "Select an instrument and click the notes to identify a chord.",
+    "reset": "Reset",
+    "guitar": "Guitar",
+    "piano": "Piano",
+    "pianoComingSoon": "Piano interface coming soon!"
+  },
+  "ScaleExplorerPage": {
+    "title": "Scale Explorer",
+    "subtitle": "Select a root note and a scale to see it on the instrument.",
+    "rootNote": "Root Note",
+    "scale": "Scale",
+    "selectRoot": "Select a root",
+    "selectScale": "Select a scale"
+  },
+  "CircleOfFifthsPage": {
+    "title": "Circle of Fifths",
+    "subtitle": "Explore key signatures and harmonic relationships."
+  },
+  "KeyInfo": {
+    "title": "Key Information",
+    "keyOf": "Key of",
+    "relativeKey": "Relative",
+    "keySignature": "Key Signature",
+    "sharps": "Sharps",
+    "flats": "Flats",
+    "none": "None",
+    "primaryChords": "Primary Chords",
+    "major": "Major",
+    "minor": "Minor",
+    "diminished": "Diminished"
+  },
+  "ChordInspector": {
+    "title": "Chord Inspector",
+    "description": "The identified chord and its structure.",
+    "placeholder": "Click on the fretboard to select notes.",
+    "chordTones": "Chord Tones",
+    "tonesPlaceholder": "Select notes to see their intervals.",
+    "saveChord": "Save Chord"
+  },
+  "SavedChords": {
+    "title": "Saved Chords",
+    "description": "Your collection of discovered chords.",
+    "placeholder": "No chords saved yet.",
+    "placeholderDescription": "Use the \"Save Chord\" button to add to your collection.",
+    "loadChord": "Load chord",
+    "deleteChord": "Delete chord"
+  },
+  "Navigation": {
+    "chordNamer": "Chord Namer",
+    "scaleExplorer": "Scale Explorer",
+    "circleOfFifths": "Circle of Fifths"
+  },
+  "Footer": {
+    "builtBy": [
+      "Built by",
+      "with love."
+    ],
+    "githubPrompt": "Give me a star or contribute on GitHub",
+    "cadenzaTools": "Cadenza Tools"
+  },
+  "Common": {
+    "unison": "Unison",
+    "powerChord": "Power Chord",
+    "unknownChord": "Unknown Chord"
+  },
+  "Scales": {
+    "major": "Major",
+    "minor": "Natural Minor",
+    "harmonicMinor": "Harmonic Minor",
+    "melodicMinor": "Melodic Minor",
+    "majorPentatonic": "Major Pentatonic",
+    "minorPentatonic": "Minor Pentatonic",
+    "blues": "Blues",
+    "dorian": "Dorian",
+    "phrygian": "Phrygian",
+    "lydian": "Lydian",
+    "mixolydian": "Mixolydian",
+    "locrian": "Locrian"
+  }
+}
