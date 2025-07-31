@@ -3,7 +3,10 @@
     "title": "Tu Kit de Herramientas de Teoría Musical Moderna",
     "subtitle": "Descubre los secretos de la armonía con Cadenza. Una suite de herramientas interactivas de uso gratuito diseñadas por músicos para músicos para explorar, identificar y crear música.",
     "launchTool": "Abrir Herramienta",
-    "moreToolsComingSoon": "¡Más herramientas próximamente!"
+    "moreToolsComingSoon": "¡Más herramientas próximamente!",
+    "new": "Nuevo",
+    "experimental": "Experimental",
+    "experimentalTooltip": "Esta función está en desarrollo y puede que no funcione como se espera."
   },
   "ChordNamer": {
     "title": "Nombrador de Acordes",
@@ -50,7 +53,9 @@
     "selectChordPlaceholder": "Selecciona un acorde",
     "resultsPlaceholder": "Selecciona al menos dos acordes para ver resultados.",
     "noResults": "No se encontraron escalas compatibles para los acordes seleccionados.",
-    "diatonicChords": "Acordes Diatónicos"
+    "diatonicChords": "Acordes Diatónicos",
+    "rootPlaceholder": "Tónica",
+    "qualityPlaceholder": "Calidad"
   },
   "KeyInfo": {
     "title": "Información de la Tonalidad",
@@ -63,7 +68,34 @@
     "primaryChords": "Acordes Primarios",
     "major": "Mayor",
     "minor": "Menor",
-    "diminished": "Disminuido"
+    "diminished": "Disminuido",
+    "augmented": "Aumentado",
+    "sus2": "Sus2",
+    "sus4": "Sus4",
+    "add9": "Add9",
+    "minoradd9": "Menor Add9",
+    "dominant7thb5": "Dominante 7 (b5)",
+    "major7thb5": "Mayor 7 (b5)",
+    "dominant7th#5": "Dominante 7 (#5)",
+    "major7th#5": "Mayor 7 (#5)",
+    "minor7thb5": "Menor 7 (b5)",
+    "major6th": "Mayor 6",
+    "minor6th": "Menor 6",
+    "dominant7th": "Dominante 7",
+    "major7th": "Mayor 7",
+    "minor7th": "Menor 7",
+    "minormajor7th": "Menor Mayor 7",
+    "diminished7th": "Disminuido 7",
+    "halfdiminished7th": "Semidisminuido 7",
+    "augmented7th": "Aumentado 7",
+    "augmentedmajor7th": "Aumentado Mayor 7",
+    "dominant9th": "Dominante 9",
+    "major9th": "Mayor 9",
+    "minor9th": "Menor 9",
+    "minormajor9th": "Menor Mayor 9",
+    "dominant7th#9": "Dominante 7 (#9)",
+    "dominant7thb9": "Dominante 7 (b9)",
+    "six9": "6/9"
   },
   "ChordInspector": {
     "title": "Inspector de Acordes",

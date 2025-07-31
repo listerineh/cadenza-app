@@ -1,13 +1,5 @@
 import type { SelectedNote, RecognizedChord, ScaleResult } from '@/types';
-import {
-  NOTES,
-  STANDARD_TUNING,
-  KEY_SIGNATURES,
-  NOTE_MAP,
-  INTERVAL_NAMES,
-  SCALES,
-  CHORD_INTERVALS,
-} from './constants';
+import { NOTES, STANDARD_TUNING, KEY_SIGNATURES, NOTE_MAP, INTERVAL_NAMES, SCALES, CHORD_INTERVALS } from './constants';
 
 const getNoteIndex = (note: string) => {
   return NOTE_MAP[note] !== undefined ? NOTE_MAP[note] : NOTES.indexOf(note);

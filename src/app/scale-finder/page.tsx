@@ -25,6 +25,7 @@ function DiatonicChordDisplay({ scale, selectedChords }: { scale: ScaleResult; s
   const { t } = useLanguage();
   if (!t) return null;
   const tPage = t('ScaleFinderPage');
+  const tKeyInfo = t('KeyInfo');
 
   const scaleKey = Object.keys(SCALES).find((key) => SCALES[key as keyof typeof SCALES].name === scale.scale) as
     | keyof typeof SCALES
@@ -33,39 +34,31 @@ function DiatonicChordDisplay({ scale, selectedChords }: { scale: ScaleResult; s
   if (!scaleKey) return <p className="text-destructive">Error: Unknown scale type '{scale.scale}'</p>;
 
   const diatonicChords = getDiatonicChords(scale.root, scaleKey);
-
-  const getSimpleChordName = (root: string, quality: string) => {
-    if (quality === 'Major') return root;
-    if (quality === 'Minor') return root + 'm';
-    if (quality === 'Diminished') return root + '°';
-    return `${root} ${quality}`;
-  };
+  const translatedDiatonicChords = diatonicChords.map((chord) => {
+    const qualityKey = chord.quality.replace(/\s+/g, '').replace(/[#()]/g, '').toLowerCase();
+    return {
+      ...chord,
+      quality: tKeyInfo[qualityKey as keyof typeof tKeyInfo] || chord.quality,
+    };
+  });
 
   return (
     <div className="flex flex-col gap-3 pt-2">
       <h4 className="font-semibold text-center text-muted-foreground">{tPage.diatonicChords}</h4>
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 text-center">
-        {diatonicChords.map((chord, index) => {
-          const simpleName = getSimpleChordName(chord.root, chord.quality);
-          const isSelected = selectedChords.some((selected) => {
-            // This logic handles matching chord names like C Major with just C
-            const [root, ...qualityParts] = selected.split(' ');
-            const quality = qualityParts.join(' ');
-            if (quality === 'Major') return simpleName === root;
-            if (quality === 'Minor') return simpleName === root + 'm';
-            if (quality === 'Diminished') return simpleName === root + '°';
-            return selected === `${chord.root} ${chord.quality}`;
-          });
-
+        {translatedDiatonicChords.map((chord, index) => {
+          const originalQuality = diatonicChords[index].quality;
+          const fullChordName = `${chord.root} ${originalQuality}`;
+          const isSelected = selectedChords.includes(fullChordName);
           return (
             <div
               key={chord.name}
               className={cn(
-                'p-2 rounded-md border-2 flex flex-col items-center justify-center aspect-square transition-all',
-                isSelected ? 'border-primary shadow-lg' : 'border-border',
-                chord.quality === 'Major' && 'bg-primary/10',
-                chord.quality === 'Minor' && 'bg-secondary',
-                chord.quality === 'Diminished' && 'bg-destructive/10',
+                'p-2 rounded-md border flex flex-col items-center justify-center aspect-square transition-all',
+                isSelected && 'ring-2 ring-primary shadow-lg',
+                !isSelected && originalQuality === 'Major' && 'bg-primary/10 border-primary/40',
+                !isSelected && originalQuality === 'Minor' && 'bg-secondary border-border',
+                !isSelected && originalQuality === 'Diminished' && 'bg-destructive/10 border-destructive/40',
               )}
             >
               <p className="font-mono text-sm text-muted-foreground">{romanNumerals[index]}</p>
@@ -118,6 +111,17 @@ export default function ScaleFinderPage() {
 
   if (!isClient || !t) return null;
   const tPage = t('ScaleFinderPage');
+  const tScales = t('Scales');
+  const tKeyInfo = t('KeyInfo');
+
+  const getScaleKey = (scaleName: string) => {
+    const entry = Object.entries(SCALES).find(([, val]) => val.name === scaleName);
+    return entry ? (entry[0] as keyof typeof tScales) : undefined;
+  };
+
+  const getQualityKey = (qualityName: string) => {
+    return qualityName.replace(/\s+/g, '').replace(/[#()]/g, '').toLowerCase();
+  };
 
   return (
     <PageLayout title={tPage.title} subtitle={tPage.subtitle}>
@@ -132,7 +136,7 @@ export default function ScaleFinderPage() {
                 <div key={index} className="flex items-center gap-2">
                   <Select value={chord.root} onValueChange={(value) => handleChordChange(index, 'root', value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Root" />
+                      <SelectValue placeholder={tPage.rootPlaceholder} />
                     </SelectTrigger>
                     <SelectContent className="max-h-60">
                       {NOTES.map((note) => (
@@ -144,14 +148,17 @@ export default function ScaleFinderPage() {
                   </Select>
                   <Select value={chord.quality} onValueChange={(value) => handleChordChange(index, 'quality', value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Quality" />
+                      <SelectValue placeholder={tPage.qualityPlaceholder} />
                     </SelectTrigger>
                     <SelectContent className="max-h-60">
-                      {chordQualities.map((name) => (
-                        <SelectItem key={name} value={name}>
-                          {name}
-                        </SelectItem>
-                      ))}
+                      {chordQualities.map((name) => {
+                        const qualityKey = getQualityKey(name);
+                        return (
+                          <SelectItem key={name} value={name}>
+                            {tKeyInfo[qualityKey as keyof typeof tKeyInfo] || name}
+                          </SelectItem>
+                        );
+                      })}
                     </SelectContent>
                   </Select>
                   {selectedChords.length > 2 && (
@@ -177,14 +184,18 @@ export default function ScaleFinderPage() {
               {validChords.length > 1 ? (
                 matchingScales.length > 0 ? (
                   <Accordion type="single" collapsible className="w-full">
-                    {matchingScales.map((scale) => (
-                      <AccordionItem key={scale.name} value={scale.name}>
-                        <AccordionTrigger className="font-semibold text-md">{scale.name}</AccordionTrigger>
-                        <AccordionContent>
-                          <DiatonicChordDisplay scale={scale} selectedChords={validChords} />
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
+                    {matchingScales.map((scale) => {
+                      const scaleKey = getScaleKey(scale.scale);
+                      const translatedScaleName = scaleKey ? tScales[scaleKey] : scale.scale;
+                      return (
+                        <AccordionItem key={scale.name} value={scale.name}>
+                          <AccordionTrigger className="font-semibold text-md">{`${scale.root} ${translatedScaleName}`}</AccordionTrigger>
+                          <AccordionContent>
+                            <DiatonicChordDisplay scale={scale} selectedChords={validChords} />
+                          </AccordionContent>
+                        </AccordionItem>
+                      );
+                    })}
                   </Accordion>
                 ) : (
                   <p className="text-muted-foreground">{tPage.noResults}</p>

@@ -3,7 +3,10 @@
     "title": "Your Modern Music Theory Toolkit",
     "subtitle": "Unlock the secrets of harmony with Cadenza. A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.",
     "launchTool": "Launch Tool",
-    "moreToolsComingSoon": "More tools coming soon!"
+    "moreToolsComingSoon": "More tools coming soon!",
+    "new": "New",
+    "experimental": "Experimental",
+    "experimentalTooltip": "This feature is under development and may not work as expected."
   },
   "ChordNamer": {
     "title": "Chord Namer",
@@ -23,7 +26,7 @@
   },
   "ChordNamerPage": {
     "title": "Chord Namer",
-    "subtitle": "Click a fret to select a note, or a fret number to create a barre. Only one note can be selected per string.",
+    "subtitle": "Click a fret to select a note, or a fret number to create a barre. Only one can be selected per string.",
     "reset": "Reset",
     "guitar": "Guitar",
     "piano": "Piano",
@@ -50,7 +53,9 @@
     "selectChordPlaceholder": "Select a chord",
     "resultsPlaceholder": "Select at least two chords to see results.",
     "noResults": "No compatible scales found for the selected chords.",
-    "diatonicChords": "Diatonic Chords"
+    "diatonicChords": "Diatonic Chords",
+    "rootPlaceholder": "Root",
+    "qualityPlaceholder": "Quality"
   },
   "KeyInfo": {
     "title": "Key Information",
@@ -63,7 +68,34 @@
     "primaryChords": "Primary Chords",
     "major": "Major",
     "minor": "Minor",
-    "diminished": "Diminished"
+    "diminished": "Diminished",
+    "augmented": "Augmented",
+    "sus2": "Sus2",
+    "sus4": "Sus4",
+    "add9": "Add9",
+    "minoradd9": "Minor Add9",
+    "dominant7thb5": "Dominant 7th (b5)",
+    "major7thb5": "Major 7th (b5)",
+    "dominant7th#5": "Dominant 7th (#5)",
+    "major7th#5": "Major 7th (#5)",
+    "minor7thb5": "Minor 7th (b5)",
+    "major6th": "Major 6th",
+    "minor6th": "Minor 6th",
+    "dominant7th": "Dominant 7th",
+    "major7th": "Major 7th",
+    "minor7th": "Minor 7th",
+    "minormajor7th": "Minor Major 7th",
+    "diminished7th": "Diminished 7th",
+    "halfdiminished7th": "Half-Diminished 7th",
+    "augmented7th": "Augmented 7th",
+    "augmentedmajor7th": "Augmented Major 7th",
+    "dominant9th": "Dominant 9th",
+    "major9th": "Major 9th",
+    "minor9th": "Minor 9th",
+    "minormajor9th": "Minor Major 9th",
+    "dominant7th#9": "Dominant 7th (#9)",
+    "dominant7thb9": "Dominant 7th (b9)",
+    "six9": "6/9"
   },
   "ChordInspector": {
     "title": "Chord Inspector",
