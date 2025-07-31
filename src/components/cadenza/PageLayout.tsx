@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 interface PageLayoutProps {
   title: string;
@@ -6,11 +6,7 @@ interface PageLayoutProps {
   children: ReactNode;
 }
 
-export default function PageLayout({
-  title,
-  subtitle,
-  children,
-}: PageLayoutProps) {
+export default function PageLayout({ title, subtitle, children }: PageLayoutProps) {
   return (
     <div className="flex flex-col flex-1">
       <div className="container mx-auto p-4 md:p-8 flex-1">

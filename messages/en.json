@@ -17,6 +17,10 @@
     "title": "Circle of Fifths",
     "description": "Explore key signatures and harmonic relationships with an interactive circle."
   },
+  "ScaleFinder": {
+    "title": "Scale Finder",
+    "description": "Find compatible scales for a given chord progression."
+  },
   "ChordNamerPage": {
     "title": "Chord Namer",
     "subtitle": "Click a fret to select a note, or a fret number to create a barre. Only one note can be selected per string.",
@@ -36,6 +40,17 @@
   "CircleOfFifthsPage": {
     "title": "Circle of Fifths",
     "subtitle": "Explore key signatures and harmonic relationships."
+  },
+  "ScaleFinderPage": {
+    "title": "Scale Finder",
+    "subtitle": "Select at least two chords to find matching scales.",
+    "inputSectionTitle": "Selected Chords",
+    "resultsSectionTitle": "Matching Scales",
+    "addChord": "Add Chord",
+    "selectChordPlaceholder": "Select a chord",
+    "resultsPlaceholder": "Select at least two chords to see results.",
+    "noResults": "No compatible scales found for the selected chords.",
+    "diatonicChords": "Diatonic Chords"
   },
   "KeyInfo": {
     "title": "Key Information",
@@ -69,7 +84,8 @@
   "Navigation": {
     "chordNamer": "Chord Namer",
     "scaleExplorer": "Scale Explorer",
-    "circleOfFifths": "Circle of Fifths"
+    "circleOfFifths": "Circle of Fifths",
+    "scaleFinder": "Scale Finder"
   },
   "Footer": {
     "builtBy": ["Built by", "with love."],

@@ -1,67 +1,67 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
-import { LanguageProvider } from "@/components/cadenza/LanguageProvider";
-import { ReactNode } from "react";
-import AppHeader from "@/components/cadenza/AppHeader";
-import AppFooter from "@/components/cadenza/AppFooter";
+import type { Metadata } from 'next';
+import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
+import { LanguageProvider } from '@/components/cadenza/LanguageProvider';
+import { ReactNode } from 'react';
+import AppHeader from '@/components/cadenza/AppHeader';
+import AppFooter from '@/components/cadenza/AppFooter';
 
 export const metadata: Metadata = {
-  title: "Cadenza",
+  title: 'Cadenza',
   description:
-    "A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.",
+    'A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.',
   keywords: [
-    "music theory",
-    "chords",
-    "scales",
-    "circle of fifths",
-    "guitar",
-    "piano",
-    "musician",
-    "harmony",
-    "music education",
-    "interactive tools",
+    'music theory',
+    'chords',
+    'scales',
+    'circle of fifths',
+    'guitar',
+    'piano',
+    'musician',
+    'harmony',
+    'music education',
+    'interactive tools',
   ],
-  generator: "Next.js",
-  referrer: "origin",
-  manifest: "/manifest.json",
-  publisher: "Vercel",
+  generator: 'Next.js',
+  referrer: 'origin',
+  manifest: '/manifest.json',
+  publisher: 'Vercel',
   authors: [
     {
-      name: "Listerineh",
-      url: "https://listerineh.dev",
+      name: 'Listerineh',
+      url: 'https://listerineh.dev',
     },
   ],
   openGraph: {
-    title: "Cadenza",
+    title: 'Cadenza',
     description:
-      "A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.",
-    url: "https://cadenza-app.vercel.app",
-    siteName: "Cadenza",
+      'A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.',
+    url: 'https://cadenza-app.vercel.app',
+    siteName: 'Cadenza',
     images: [
       {
-        url: "/images/website_screenshot.webp",
+        url: '/images/website_screenshot.webp',
         width: 1200,
         height: 630,
-        alt: "Cadenza Preview",
+        alt: 'Cadenza Preview',
       },
     ],
-    locale: "en_US",
-    type: "website",
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
-    title: "Cadenza",
+    title: 'Cadenza',
     description:
-      "A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.",
+      'A free-to-use suite of interactive tools designed for musicians by musicians to explore, identify, and create music.',
     images: [
       {
-        url: "/images/website_screenshot.webp",
+        url: '/images/website_screenshot.webp',
         width: 1200,
         height: 630,
-        alt: "Cadenza Preview",
+        alt: 'Cadenza Preview',
       },
     ],
-    card: "summary_large_image",
+    card: 'summary_large_image',
   },
 };
 
@@ -85,11 +85,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
           rel="stylesheet"

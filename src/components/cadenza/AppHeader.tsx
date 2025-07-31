@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import CadenzaIcon from "@/components/icons/CadenzaIcon";
-import LanguageSwitcher from "@/components/cadenza/LanguageSwitcher";
-import { NAV_LINKS } from "@/lib/constants";
+import Link from 'next/link';
+import CadenzaIcon from '@/components/icons/CadenzaIcon';
+import LanguageSwitcher from '@/components/cadenza/LanguageSwitcher';
+import { NAV_LINKS } from '@/lib/constants';
 
 export default function AppHeader() {
   return (

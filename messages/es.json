@@ -17,6 +17,10 @@
     "title": "Círculo de Quintas",
     "description": "Explora armaduras y relaciones armónicas con un círculo interactivo."
   },
+  "ScaleFinder": {
+    "title": "Buscador de Escalas",
+    "description": "Encuentra escalas compatibles para una progresión de acordes."
+  },
   "ChordNamerPage": {
     "title": "Nombrador de Acordes",
     "subtitle": "Haz clic en un traste para seleccionar una nota, o en un número de traste para crear una cejilla. Solo se puede seleccionar una nota por cuerda.",
@@ -36,6 +40,17 @@
   "CircleOfFifthsPage": {
     "title": "Círculo de Quintas",
     "subtitle": "Explora armaduras y relaciones armónicas."
+  },
+  "ScaleFinderPage": {
+    "title": "Buscador de Escalas",
+    "subtitle": "Selecciona al menos dos acordes para encontrar escalas compatibles.",
+    "inputSectionTitle": "Acordes Seleccionados",
+    "resultsSectionTitle": "Escalas Compatibles",
+    "addChord": "Añadir Acorde",
+    "selectChordPlaceholder": "Selecciona un acorde",
+    "resultsPlaceholder": "Selecciona al menos dos acordes para ver resultados.",
+    "noResults": "No se encontraron escalas compatibles para los acordes seleccionados.",
+    "diatonicChords": "Acordes Diatónicos"
   },
   "KeyInfo": {
     "title": "Información de la Tonalidad",
@@ -69,7 +84,8 @@
   "Navigation": {
     "chordNamer": "Nombrador de Acordes",
     "scaleExplorer": "Explorador de Escalas",
-    "circleOfFifths": "Círculo de Quintas"
+    "circleOfFifths": "Círculo de Quintas",
+    "scaleFinder": "Buscador de Escalas"
   },
   "Footer": {
     "builtBy": ["Hecho por", "con amor."],

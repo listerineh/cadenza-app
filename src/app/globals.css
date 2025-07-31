@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: "Alegreya", sans-serif;
+  font-family: 'Alegreya', sans-serif;
 }
 
 @layer base {

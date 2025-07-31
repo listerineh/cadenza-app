@@ -1,27 +1,20 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useLanguage } from "./LanguageProvider";
-import { Button } from "@/components/ui/button";
+import { useState } from 'react';
+import { useLanguage } from './LanguageProvider';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
-import { Globe, Menu, X, Github } from "lucide-react";
-import Link from "next/link";
-import CadenzaIcon from "../icons/CadenzaIcon";
-import UsaFlagIcon from "../icons/UsaFlagIcon";
-import SpainFlagIcon from "../icons/SpainFlagIcon";
+} from '@/components/ui/dropdown-menu';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Globe, Menu, X, Github } from 'lucide-react';
+import Link from 'next/link';
+import CadenzaIcon from '../icons/CadenzaIcon';
+import UsaFlagIcon from '../icons/UsaFlagIcon';
+import SpainFlagIcon from '../icons/SpainFlagIcon';
 
 interface NavLink {
   href: string;
@@ -35,8 +28,8 @@ interface LanguageSwitcherProps {
 
 export default function LanguageSwitcher({ navLinks }: LanguageSwitcherProps) {
   const { setLocale, t } = useLanguage();
-  const tNav = t("Navigation");
-  const tFooter = t("Footer");
+  const tNav = t('Navigation');
+  const tFooter = t('Footer');
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   return (
@@ -61,11 +54,11 @@ export default function LanguageSwitcher({ navLinks }: LanguageSwitcherProps) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => setLocale("en")}>
+          <DropdownMenuItem onClick={() => setLocale('en')}>
             <UsaFlagIcon className="h-4 w-4 mr-2 rounded-full" />
             English
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setLocale("es")}>
+          <DropdownMenuItem onClick={() => setLocale('es')}>
             <SpainFlagIcon className="h-4 w-4 mr-2 rounded-full" />
             Español
           </DropdownMenuItem>
@@ -83,11 +76,7 @@ export default function LanguageSwitcher({ navLinks }: LanguageSwitcherProps) {
           <SheetContent side="left" className="w-[80vw] max-w-xs flex flex-col">
             <SheetHeader className="border-b pb-4">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <Link
-                href="/"
-                className="flex items-center gap-2"
-                onClick={() => setIsSheetOpen(false)}
-              >
+              <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
                 <CadenzaIcon className="text-primary" />
                 <span className="font-bold text-lg">Cadenza</span>
               </Link>
@@ -107,7 +96,7 @@ export default function LanguageSwitcher({ navLinks }: LanguageSwitcherProps) {
             <footer className="mt-auto pt-4 border-t">
               <div className="flex flex-col items-center gap-4">
                 <p className="text-center text-xs leading-loose text-muted-foreground">
-                  {tFooter.builtBy[0]}{" "}
+                  {tFooter.builtBy[0]}{' '}
                   <a
                     href="https://listerineh.dev"
                     target="_blank"
@@ -115,7 +104,7 @@ export default function LanguageSwitcher({ navLinks }: LanguageSwitcherProps) {
                     className="font-semibold text-primary/80 hover:text-primary"
                   >
                     Listerineh
-                  </a>{" "}
+                  </a>{' '}
                   {tFooter.builtBy[1]}
                 </p>
                 <a

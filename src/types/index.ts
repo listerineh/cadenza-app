@@ -1,11 +1,11 @@
 export type GuitarFingering = {
-  type: "guitar";
+  type: 'guitar';
   string: number; // 0 for high E, 5 for low E
   fret: number; // 0 for open string
 };
 
 export type PianoFingering = {
-  type: "piano";
+  type: 'piano';
   midi: number;
 };
 
@@ -33,4 +33,11 @@ export interface RecognizedChord {
   root: string;
   quality: string;
   tones: ChordTone[];
+}
+
+export interface ScaleResult {
+  name: string;
+  root: string;
+  scale: string;
+  notes: string[];
 }

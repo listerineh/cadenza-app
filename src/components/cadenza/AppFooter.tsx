@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useLanguage } from "./LanguageProvider";
-import { Github } from "lucide-react";
-import { NAV_LINKS } from "@/lib/constants";
+import Link from 'next/link';
+import { useLanguage } from './LanguageProvider';
+import { Github } from 'lucide-react';
+import { NAV_LINKS } from '@/lib/constants';
 
 export default function AppFooter() {
   const { t } = useLanguage();
 
   if (!t) return null;
-  const tFooter = t("Footer");
-  const tNav = t("Navigation");
+  const tFooter = t('Footer');
+  const tNav = t('Navigation');
 
   return (
     <footer className="py-8 md:px-8 border-t border-border/40">
@@ -41,7 +41,7 @@ export default function AppFooter() {
           </div>
         </div>
         <p className="text-center text-sm leading-loose text-muted-foreground">
-          {tFooter.builtBy[0]}{" "}
+          {tFooter.builtBy[0]}{' '}
           <a
             href="https://listerineh.dev"
             target="_blank"
@@ -49,7 +49,7 @@ export default function AppFooter() {
             className="font-semibold text-primary/80 hover:text-primary transition-colors"
           >
             Listerineh
-          </a>{" "}
+          </a>{' '}
           {tFooter.builtBy[1]}
         </p>
       </div>
