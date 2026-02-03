@@ -205,7 +205,7 @@ export default function ChordNamerPage() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="flex flex-col gap-6">
-            <ChordDisplay chordData={chordData} onSave={handleSaveChord} hasSelection={selectedNotes.length > 0} />
+            <ChordDisplay chordData={chordData} onSave={handleSaveChord} hasSelection={selectedNotes.length > 0} guitarNotes={guitarNotes} pianoNotes={pianoNotes} />
           </div>
           <div className="flex flex-col gap-6">
             <SavedChords savedChords={savedChords} onDelete={handleDeleteChord} onSelect={handleSelectChord} />

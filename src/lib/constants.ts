@@ -6,7 +6,7 @@ export const NAV_LINKS = [
 ];
 
 export const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-export const STANDARD_TUNING = [4, 9, 2, 7, 11, 4]; // E, A, D, G, B, E from low to high (indices in NOTES)
+export const STANDARD_TUNING = [4, 9, 2, 7, 11, 4];
 
 export const CIRCLE_OF_FIFTHS_MAJOR = ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'Db', 'Ab', 'Eb', 'Bb', 'F'];
 export const CIRCLE_OF_FIFTHS_MINOR = ['Am', 'Em', 'Bm', 'F#m', 'C#m', 'G#m', 'D#m', 'Bbm', 'Fm', 'Cm', 'Gm', 'Dm'];

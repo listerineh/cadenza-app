@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { getNoteFromMidi } from '@/lib/music';
+import { playMidiNote } from '@/lib/audio';
 
 interface PianoProps {
   onKeyToggle?: (midi: number) => void;
@@ -53,7 +54,12 @@ export default function Piano({
           return (
             <button
               key={midi}
-              onClick={() => isInteractive && onKeyToggle(midi)}
+              onClick={() => {
+                if (isInteractive) {
+                  onKeyToggle(midi);
+                  playMidiNote(midi);
+                }
+              }}
               className={cn(
                 'relative flex-1 h-full border-r border-b border-l border-foreground/30 rounded-b-md flex items-end justify-center pb-4 group',
                 'transition-colors',
@@ -105,7 +111,12 @@ export default function Piano({
           return (
             <button
               key={midi}
-              onClick={() => isInteractive && onKeyToggle(midi)}
+              onClick={() => {
+                if (isInteractive) {
+                  onKeyToggle(midi);
+                  playMidiNote(midi);
+                }
+              }}
               style={{ left: leftPosition }}
               className={cn(
                 'absolute top-0 w-[9%] h-2/3 rounded-b-md z-10 flex items-end justify-center pb-2 group',

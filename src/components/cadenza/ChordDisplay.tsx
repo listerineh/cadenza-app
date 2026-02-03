@@ -3,17 +3,26 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import type { RecognizedChord } from '@/types';
-import { Save } from 'lucide-react';
+import type { RecognizedChord, GuitarFingering } from '@/types';
+import { Save, Volume2 } from 'lucide-react';
 import { useLanguage } from './LanguageProvider';
+import { playGuitarChord, playMidiNote } from '@/lib/audio';
 
 interface ChordDisplayProps {
   chordData: RecognizedChord | null;
   onSave: () => void;
   hasSelection: boolean;
+  guitarNotes?: GuitarFingering[];
+  pianoNotes?: number[];
 }
 
-export default function ChordDisplay({ chordData, onSave, hasSelection }: ChordDisplayProps) {
+export default function ChordDisplay({ 
+  chordData, 
+  onSave, 
+  hasSelection, 
+  guitarNotes = [],
+  pianoNotes = [] 
+}: ChordDisplayProps) {
   const { t } = useLanguage();
 
   if (!t) return null;
@@ -22,6 +31,21 @@ export default function ChordDisplay({ chordData, onSave, hasSelection }: ChordD
 
   const isLoading = hasSelection && !chordData;
   const isUnknown = chordData?.name === tCommon.unknownChord;
+
+  const handlePlayChord = () => {
+    if (guitarNotes.length > 0) {
+      const guitarStrings = guitarNotes.map((n) => ({ string: n.string, fret: n.fret }));
+      playGuitarChord(guitarStrings, 'down');
+    } else if (pianoNotes.length > 0) {
+      pianoNotes.forEach((midi, index) => {
+        setTimeout(() => {
+          playMidiNote(midi, 1.0);
+        }, index * 50);
+      });
+    }
+  };
+
+  const canPlay = guitarNotes.length > 0 || pianoNotes.length > 0;
 
   return (
     <Card className="flex flex-col h-full">
@@ -62,7 +86,10 @@ export default function ChordDisplay({ chordData, onSave, hasSelection }: ChordD
           )}
         </div>
 
-        <div className="grid grid-cols-1 gap-4 pt-4 border-t">
+        <div className="grid grid-cols-2 gap-4 pt-4 border-t">
+          <Button variant="outline" onClick={handlePlayChord} disabled={!hasSelection || !canPlay}>
+            <Volume2 className="mr-2 h-4 w-4" /> Play Chord
+          </Button>
           <Button onClick={onSave} disabled={!chordData || !hasSelection || isUnknown}>
             <Save className="mr-2 h-4 w-4" /> {tInspector.saveChord}
           </Button>

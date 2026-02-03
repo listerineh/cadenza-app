@@ -1,6 +1,7 @@
 'use client';
 
 import { getNoteFromFret } from '@/lib/music';
+import { playGuitarNote } from '@/lib/audio';
 import { cn } from '@/lib/utils';
 import type { GuitarFingering } from '@/types';
 import { X } from 'lucide-react';
@@ -42,7 +43,12 @@ export default function Fretboard({
                   {/* Open String Button */}
                   <div className="w-12 h-10 flex items-center justify-center pr-2 shrink-0">
                     <button
-                      onClick={() => isInteractive && onFretToggle(stringIndex, 0)}
+                      onClick={() => {
+                        if (isInteractive) {
+                          onFretToggle(stringIndex, 0);
+                          playGuitarNote(stringIndex, 0);
+                        }
+                      }}
                       className={cn(
                         'w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-150 relative',
                         selectedFretForString?.fret === 0
@@ -97,7 +103,12 @@ export default function Fretboard({
                             ></div>
 
                             <button
-                              onClick={() => isInteractive && onFretToggle(stringIndex, fret)}
+                              onClick={() => {
+                                if (isInteractive) {
+                                  onFretToggle(stringIndex, fret);
+                                  playGuitarNote(stringIndex, fret);
+                                }
+                              }}
                               className={cn(
                                 'w-full h-full flex items-center justify-center',
                                 isInteractive && 'group',
