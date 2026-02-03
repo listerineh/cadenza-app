@@ -1,5 +1,5 @@
 import type { SelectedNote, RecognizedChord, ScaleResult } from '@/types';
-import { NOTES, STANDARD_TUNING, KEY_SIGNATURES, NOTE_MAP, INTERVAL_NAMES, SCALES, CHORD_INTERVALS } from './constants';
+import { NOTES, STANDARD_TUNING, KEY_SIGNATURES, NOTE_MAP, INTERVAL_NAMES, SCALES, CHORD_INTERVALS, CHORD_LOOKUP } from './constants';
 
 const getNoteIndex = (note: string) => {
   return NOTE_MAP[note] !== undefined ? NOTE_MAP[note] : NOTES.indexOf(note);
@@ -104,19 +104,17 @@ export const findScalesForChords = (chordNames: string[]): ScaleResult[] => {
 };
 
 export const recognizeChord = (notes: string[]): RecognizedChord | null => {
-  if (notes.length < 2) return null;
+  if (notes.length < 1) return null;
 
   const uniqueNotes = [...new Set(notes)];
-  if (uniqueNotes.length < 2) {
-    if (uniqueNotes.length === 1) {
-      return {
-        name: `${uniqueNotes[0]} Unison`,
-        root: uniqueNotes[0],
-        quality: 'Unison',
-        tones: [{ note: uniqueNotes[0], interval: 'Root' }],
-      };
-    }
-    return null;
+
+  if (uniqueNotes.length === 1) {
+    return {
+      name: uniqueNotes[0],
+      root: uniqueNotes[0],
+      quality: '',
+      tones: [{ note: uniqueNotes[0], interval: 'Root' }],
+    };
   }
 
   if (uniqueNotes.length === 2) {
@@ -128,13 +126,32 @@ export const recognizeChord = (notes: string[]): RecognizedChord | null => {
           const intervalValue = (getNoteIndex(note) - rootIndex + 12) % 12;
           return { note, interval: intervalValue === 0 ? 'Root' : 'Perfect 5th' };
         });
-        return { name: `${rootNote}5`, root: rootNote, quality: 'Power Chord', tones };
+        return { name: `${rootNote}5`, root: rootNote, quality: '5', tones };
       }
     }
   }
 
-  // Create a reversed copy for recognition so we check complex chords first
-  const reversedChordIntervals = [...CHORD_INTERVALS].reverse();
+  for (const rootNote of uniqueNotes) {
+    const rootIndex = getNoteIndex(rootNote);
+    if (rootIndex === -1) continue;
+
+    const intervals = uniqueNotes.map((note) => (getNoteIndex(note) - rootIndex + 12) % 12).sort((a, b) => a - b);
+    const intervalKey = intervals.join(',');
+
+    const chordQuality = CHORD_LOOKUP.get(intervalKey);
+    if (chordQuality !== undefined) {
+      const tones = uniqueNotes
+        .map((note) => {
+          const intervalValue = (getNoteIndex(note) - rootIndex + 12) % 12;
+          return { note, interval: INTERVAL_NAMES[intervalValue as keyof typeof INTERVAL_NAMES] || 'Unknown' };
+        })
+        .sort(
+          (a, b) => ((getNoteIndex(a.note) - rootIndex + 12) % 12) - ((getNoteIndex(b.note) - rootIndex + 12) % 12),
+        );
+
+      return { name: `${rootNote}${chordQuality}`, root: rootNote, quality: chordQuality, tones };
+    }
+  }
 
   for (const rootNote of uniqueNotes) {
     const rootIndex = getNoteIndex(rootNote);
@@ -142,11 +159,12 @@ export const recognizeChord = (notes: string[]): RecognizedChord | null => {
 
     const intervals = uniqueNotes.map((note) => (getNoteIndex(note) - rootIndex + 12) % 12).sort((a, b) => a - b);
 
-    for (const [quality, requiredIntervalSets] of reversedChordIntervals) {
+    for (const [quality, requiredIntervalSets] of CHORD_INTERVALS) {
       for (const requiredIntervals of requiredIntervalSets) {
-        const isMatch = requiredIntervals.every((reqInterval) => intervals.includes(reqInterval));
+        const isSubset = intervals.every((interval) => requiredIntervals.includes(interval));
+        const hasEssentialNotes = intervals.includes(0) && (intervals.includes(3) || intervals.includes(4)) && intervals.includes(7);
 
-        if (isMatch) {
+        if (isSubset && hasEssentialNotes) {
           const tones = uniqueNotes
             .map((note) => {
               const intervalValue = (getNoteIndex(note) - rootIndex + 12) % 12;
@@ -156,7 +174,7 @@ export const recognizeChord = (notes: string[]): RecognizedChord | null => {
               (a, b) => ((getNoteIndex(a.note) - rootIndex + 12) % 12) - ((getNoteIndex(b.note) - rootIndex + 12) % 12),
             );
 
-          return { name: `${rootNote} ${quality}`, root: rootNote, quality, tones };
+          return { name: `${rootNote}${quality} (no ${requiredIntervals.filter((ri) => !intervals.includes(ri)).map((ri) => INTERVAL_NAMES[ri]).join(', ')})`, root: rootNote, quality: quality, tones };
         }
       }
     }

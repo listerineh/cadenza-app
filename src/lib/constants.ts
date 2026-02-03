@@ -84,66 +84,69 @@ export const SCALES: Record<string, { name: string; intervals: number[] }> = {
 };
 
 export const CHORD_INTERVALS: [string, number[][]][] = [
-  [
-    '6/9',
-    [
-      [0, 4, 7, 9, 2],
-      [0, 4, 9, 2],
-    ],
-  ],
-  ['Dominant 7th (b9)', [[0, 4, 7, 10, 1]]],
-  ['Dominant 7th (#9)', [[0, 4, 7, 10, 3]]],
-  [
-    'Minor Major 9th',
-    [
-      [0, 3, 7, 11, 2],
-      [0, 3, 11, 2],
-    ],
-  ],
-  [
-    'Minor 9th',
-    [
-      [0, 3, 7, 10, 2],
-      [0, 3, 10, 2],
-    ],
-  ],
-  [
-    'Major 9th',
-    [
-      [0, 4, 7, 11, 2],
-      [0, 4, 11, 2],
-    ],
-  ],
-  [
-    'Dominant 9th',
-    [
-      [0, 4, 7, 10, 2],
-      [0, 4, 10, 2],
-    ],
-  ],
-  ['Augmented Major 7th', [[0, 4, 8, 11]]],
-  ['Augmented 7th', [[0, 4, 8, 10]]],
-  ['Half-Diminished 7th', [[0, 3, 6, 10]]],
-  ['Diminished 7th', [[0, 3, 6, 9]]],
-  ['Minor Major 7th', [[0, 3, 7, 11]]],
-  ['Minor 7th', [[0, 3, 7, 10]]],
-  ['Major 7th', [[0, 4, 7, 11]]],
-  ['Dominant 7th', [[0, 4, 7, 10]]],
-  ['Minor 6th', [[0, 3, 7, 9]]],
-  ['Major 6th', [[0, 4, 7, 9]]],
-  ['Minor 7th (b5)', [[0, 3, 6, 10]]],
-  ['Major 7th (#5)', [[0, 4, 8, 11]]],
-  ['Dominant 7th (#5)', [[0, 4, 8, 10]]],
-  ['Major 7th (b5)', [[0, 4, 6, 11]]],
-  ['Dominant 7th (b5)', [[0, 4, 6, 10]]],
-  ['Minor Add9', [[0, 3, 7, 2]]],
-  ['Add9', [[0, 4, 7, 2]]],
-  ['Sus4', [[0, 5, 7]]],
-  ['Sus2', [[0, 2, 7]]],
-  ['Augmented', [[0, 4, 8]]],
-  ['Diminished', [[0, 3, 6]]],
-  ['Minor', [[0, 3, 7]]],
-  ['Major', [[0, 4, 7]]],
+  ['13', [[0, 4, 7, 10, 14, 17, 21]]],  // Dominant 13th: 1, 3, 5, b7, 9, 11, 13
+  ['maj13', [[0, 4, 7, 11, 14, 17, 21]]],  // Major 13th: 1, 3, 5, 7, 9, 11, 13
+  ['m13', [[0, 3, 7, 10, 14, 17, 21]]],  // Minor 13th: 1, b3, 5, b7, 9, 11, 13
+  ['13(b9)', [[0, 4, 7, 10, 13, 17, 21]]],  // Dominant 13 flat 9
+  ['13(#9)', [[0, 4, 7, 10, 15, 17, 21]]],  // Dominant 13 sharp 9
+  ['11', [[0, 4, 7, 10, 14, 17]]],  // Dominant 11th: 1, 3, 5, b7, 9, 11
+  ['maj11', [[0, 4, 7, 11, 14, 17]]],  // Major 11th: 1, 3, 5, 7, 9, 11
+  ['m11', [[0, 3, 7, 10, 14, 17]]],  // Minor 11th: 1, b3, 5, b7, 9, 11
+  ['9', [[0, 4, 7, 10, 14]]],  // Dominant 9th: 1, 3, 5, b7, 9
+  ['maj9', [[0, 4, 7, 11, 14]]],  // Major 9th: 1, 3, 5, 7, 9
+  ['m9', [[0, 3, 7, 10, 14]]],  // Minor 9th: 1, b3, 5, b7, 9
+  ['9(b5)', [[0, 4, 6, 10, 14]]],  // Dominant 9 flat 5
+  ['9(#5)', [[0, 4, 8, 10, 14]]],  // Dominant 9 sharp 5
+  ['9(b9)', [[0, 4, 7, 10, 13]]],  // Dominant 9 flat 9
+  ['9(#9)', [[0, 4, 7, 10, 15]]],  // Dominant 9 sharp 9
+  ['m9(b5)', [[0, 3, 6, 10, 14]]],  // Half-diminished 9 (minor 9 flat 5)
+  ['maj9(b5)', [[0, 4, 6, 11, 14]]],  // Major 9 flat 5
+  // 6/9 chords
+  ['6/9', [[0, 4, 7, 9, 14]]],
+  ['m6/9', [[0, 3, 7, 9, 14]]],
+  // 7th chords with alterations
+  ['7(b5)', [[0, 4, 6, 10]]],  // Dominant 7 flat 5
+  ['7(#5)', [[0, 4, 8, 10]]],  // Dominant 7 sharp 5 (augmented 7th)
+  ['7(b9)', [[0, 4, 7, 10, 13]]],
+  ['7(#9)', [[0, 4, 7, 10, 15]]],
+  ['7(#11)', [[0, 4, 7, 10, 18]]],  // Dominant 7 sharp 11
+  ['7(b13)', [[0, 4, 7, 10, 20]]],  // Dominant 7 flat 13
+  ['maj7(b5)', [[0, 4, 6, 11]]],
+  ['maj7(#5)', [[0, 4, 8, 11]]],
+  ['m7(b5)', [[0, 3, 6, 10]]],  // Half-diminished
+  ['m7(b9)', [[0, 3, 7, 10, 13]]],
+  // Basic 7th chords
+  ['maj7', [[0, 4, 7, 11]]],
+  ['7', [[0, 4, 7, 10]]],  // Dominant 7th
+  ['m7', [[0, 3, 7, 10]]],
+  ['mMaj7', [[0, 3, 7, 11]]],  // Minor major 7th
+  ['dim7', [[0, 3, 6, 9]]],  // Diminished 7th
+  ['ø7', [[0, 3, 6, 10]]],  // Half-diminished 7th (alternative notation)
+  ['m7b5', [[0, 3, 6, 10]]],  // Half-diminished 7th (common notation)
+  // 6th chords
+  ['6', [[0, 4, 7, 9]]],
+  ['m6', [[0, 3, 7, 9]]],
+  // Suspended chords with 7th
+  ['7sus4', [[0, 5, 7, 10]]],
+  ['7sus2', [[0, 2, 7, 10]]],
+  ['maj7sus4', [[0, 5, 7, 11]]],
+  // Add chords
+  ['add9', [[0, 4, 7, 14]]],  // 9 semitones = 2nd = add9
+  ['madd9', [[0, 3, 7, 14]]],
+  ['add11', [[0, 4, 7, 17]]],  // 11 semitones = 4th = add11
+  ['madd11', [[0, 3, 7, 17]]],
+  ['add13', [[0, 4, 7, 21]]],  // 21 semitones = 6th = add13
+  // Basic suspended chords
+  ['sus4', [[0, 5, 7]]],
+  ['sus2', [[0, 2, 7]]],
+  ['sus', [[0, 5, 7]]],  // Default sus = sus4
+  // Triads
+  ['aug', [[0, 4, 8]]],  // Augmented
+  ['+', [[0, 4, 8]]],  // Augmented (alternative)
+  ['dim', [[0, 3, 6]]],  // Diminished
+  ['°', [[0, 3, 6]]],  // Diminished (alternative)
+  ['m', [[0, 3, 7]]],  // Minor
+  ['', [[0, 4, 7]]],  // Major (empty string for just root name like "C")
 ];
 
 export const CHORD_LOOKUP: Map<string, string> = new Map();

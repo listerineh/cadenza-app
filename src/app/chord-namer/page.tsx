@@ -69,8 +69,7 @@ export default function ChordNamerPage() {
     const uniqueNotes = [...new Set(currentNotes)];
     const recognized = recognizeChord(uniqueNotes);
     if (recognized) {
-      if (recognized.quality === 'Unison') recognized.name = `${recognized.root} ${tCommon.unison}`;
-      if (recognized.quality === 'Power Chord') recognized.name = `${recognized.root}5`;
+      if (recognized.quality === '') recognized.name = recognized.root;
       if (recognized.quality === 'Unknown') recognized.name = tCommon.unknownChord;
     }
     return recognized;
