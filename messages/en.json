@@ -120,7 +120,7 @@
     "scaleFinder": "Scale Finder"
   },
   "Footer": {
-    "builtBy": ["Built by", "with love."],
+    "builtBy": ["Built by", "with love for musicians by musicians."],
     "githubPrompt": "Give me a star or contribute on GitHub",
     "cadenzaTools": "Cadenza Tools"
   },
